@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Mapping configuration details between Role class and role table -->
+<hibernate-mapping package="org.cuatrovientos.hybernate.manyToMany.models">
+
+	<class name="Role" table="role">
+		<id name="id" column="id">
+			<generator class="identity" />
+		</id>
+		<property name="name" column="name" />
+		<property name="description" column="description" />
+		<!-- Bidireccional -->
+	<!-- <set name="users" table="users_roles" inverse="true">
+            <key column="role_id" />
+			<list-index column="list_order" />
+			<many-to-many class="User" column="user_id" />
+		</list> -->
+	
+	</class>
+
+</hibernate-mapping>

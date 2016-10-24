@@ -1,13 +1,14 @@
 package org.cuatrovientos.hybernate.manyToMany.models;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class User {
-	private String email;
 	private Long id;
 	private String login;
 	private String password;
-	private HashSet<Role> roles;
+	private String email;
+	private Set<Role> roles= new HashSet<Role>();
 	
 	/**
 	 * @param email
@@ -16,7 +17,7 @@ public class User {
 	 * @param password
 	 * @param roles
 	 */
-	public User(String email, Long id, String login, String password, HashSet<Role> roles) {
+	public User(Long id, String email, String login, String password) {
 		this.email = email;
 		this.id = id;
 		this.login = login;
@@ -53,10 +54,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public HashSet<Role> getRoles() {
+	public Set<Role> getRoles() {
 		return roles;
 	}
-	public void setRoles(HashSet<Role> roles) {
+	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 	

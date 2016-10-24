@@ -4,12 +4,15 @@ public class Role {
 	private String description;
 	private Long id;
 	private String name;
+	//Bidireccional
+	// private Set<User> users;
+	
 	/**
 	 * @param description
 	 * @param id
 	 * @param name
 	 */
-	public Role(String description, Long id, String name) {
+	public Role(Long id, String description, String name) {
 		this.description = description;
 		this.id = id;
 		this.name = name;
@@ -38,5 +41,13 @@ public class Role {
 		this.name = name;
 	}
 	
+	//Bidireccional
 	
+	//public Set<User> getUsers() {
+	//	return users;
+	//}
+
+	//public void setUsers(Set<User> users) {
+	//	this.users = users;
+	//}
 }
