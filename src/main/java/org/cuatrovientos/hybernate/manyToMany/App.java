@@ -28,7 +28,7 @@ public class App
     	System.out.println("\n--- Users ----- table contents -----------");
         
         for(User user : users) {
-        	userDesc = "Id: " + user.getId() + 
+        	userDesc = "Id: " + user.getuserId() + 
         					" - Name: " + user.getLogin() + 
         					" - Roles: " + user.getRoles().toString();
         	System.out.println(userDesc);
@@ -49,7 +49,7 @@ public class App
     	System.out.println("\n--- Roles ----- table contents -----------");
         
         for(Role role : roles) {
-        	roleDesc = "Id: " + role.getId() + 
+        	roleDesc = "Id: " + role.getroleId() + 
         					" - Name: " + role.getName() +
         					" - Description: " + role.getDescription();
         	System.out.println(roleDesc);
@@ -71,17 +71,17 @@ public class App
 
     	
         // INSERT NEW DATA
-    	Role role = new Role(0l,"default","Another role");
+    	Role role = new Role(1l,"default","Another role");
     	roleDAO.insert(role);
     	HashSet<Role> roles = new HashSet<Role>();
     	roles.add(role);
     	
-    	User newUser = new User(0l,"newuser","1234567","newuser@gmail.com");
+    	User newUser = new User(1l,"newuser","1234567","newuser@gmail.com");
     	newUser.setRoles(roles);
     	
     	userDAO.insert(newUser);
     	
-    	System.out.println("Inserted id: " + newUser.getId());
+    	System.out.println("Inserted id: " + newUser.getuserId());
     	
         System.out.println("\nShow data after new insert");
     	showAllUsers(userDAO);
@@ -99,10 +99,6 @@ public class App
         System.out.println("\nShow data after update");
     	showAllUsers(userDAO);
         
-        // DELETE DATA
-        userDAO.delete(newUser);
-        System.out.println("\nShow data after deletion");
-    	showAllUsers(userDAO);
 
     }
 }

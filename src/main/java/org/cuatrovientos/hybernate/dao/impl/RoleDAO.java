@@ -35,7 +35,7 @@ public class RoleDAO implements RoleDAOInterface{
 	    Session session = sessionFactory.openSession();
 	    session.beginTransaction();
 	
-	    session.persist(role);
+	    session.merge(role);
 	         
 	    session.getTransaction().commit();
 	    session.close();

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class User {
-	private Long id;
+	private Long userId;
 	private String login;
 	private String password;
 	private String email;
@@ -17,12 +17,11 @@ public class User {
 	 * @param password
 	 * @param roles
 	 */
-	public User(Long id, String email, String login, String password) {
+	public User(Long idUser, String email, String login, String password) {
 		this.email = email;
-		this.id = id;
+		this.userId = idUser;
 		this.login = login;
 		this.password = password;
-		this.roles = roles;
 	}
 	
 	/**
@@ -36,11 +35,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getId() {
-		return id;
+	public Long getuserId() {
+		return userId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setuserId(Long idUser) {
+		this.userId = idUser;
 	}
 	public String getLogin() {
 		return login;

@@ -7,18 +7,17 @@
 <hibernate-mapping package="org.cuatrovientos.hybernate.manyToMany.models">
 
 	<class name="Role" table="role">
-		<id name="id" column="id">
+		<id name="roleId" column="roleId">
 			<generator class="identity" />
 		</id>
 		<property name="name" column="name" />
 		<property name="description" column="description" />
+		
 		<!-- Bidireccional -->
-	<!-- <set name="users" table="users_roles" inverse="true">
-            <key column="role_id" />
-			<list-index column="list_order" />
-			<many-to-many class="User" column="user_id" />
-		</list> -->
-	
+ 		<set name="users" table="users_roles" inverse="true" lazy="false" fetch="select">
+            <key column="idRole" />
+            <many-to-many column="idUser" class="User" />
+        </set>
 	</class>
 
 </hibernate-mapping>

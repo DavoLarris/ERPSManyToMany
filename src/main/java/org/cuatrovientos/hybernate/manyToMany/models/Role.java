@@ -1,20 +1,23 @@
 package org.cuatrovientos.hybernate.manyToMany.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Role {
-	private String description;
-	private Long id;
+	private Long roleId;
 	private String name;
+	private String description;
 	//Bidireccional
-	// private Set<User> users;
+	 private Set<User> users = new HashSet<User>();
 	
 	/**
 	 * @param description
 	 * @param id
 	 * @param name
 	 */
-	public Role(Long id, String description, String name) {
+	public Role(Long idRole, String description, String name) {
 		this.description = description;
-		this.id = id;
+		this.roleId = idRole;
 		this.name = name;
 	}
 	/**
@@ -28,11 +31,11 @@ public class Role {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Long getId() {
-		return id;
+	public Long getroleId() {
+		return roleId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setroleId(Long idRole) {
+		this.roleId = idRole;
 	}
 	public String getName() {
 		return name;
@@ -43,11 +46,11 @@ public class Role {
 	
 	//Bidireccional
 	
-	//public Set<User> getUsers() {
-	//	return users;
-	//}
+	public Set<User> getUsers() {
+		return users;
+	}
 
-	//public void setUsers(Set<User> users) {
-	//	this.users = users;
-	//}
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
 }

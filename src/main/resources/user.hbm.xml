@@ -7,18 +7,19 @@
 <hibernate-mapping package="org.cuatrovientos.hybernate.manyToMany.models">
 
 	<class name="User" table="user">
-		<id name="id" column="id">
+		<id name="userId" column="userId">
 			<generator class="identity" />
 		</id>
 		<property name="login" column="login" />
 		<property name="password" column="password" />
 		<property name="email" column="email" />
 		
-		<set name="roles" table="users_roles" cascade="all-delete-orphan">
-			<key column="user_id" />
-			<list-index column="list_order" />
-			<many-to-many class="Role" column="role_id" />
-		</list>
+		
+		<set name="roles" table="users_roles" cascade="all" inverse="false" lazy="false" fetch="select">
+			<key column="idUser" />
+			<many-to-many class="Role" column="idRole" />
+		</set>
+
 		
 	</class>
 
